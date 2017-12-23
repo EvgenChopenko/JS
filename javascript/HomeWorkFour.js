@@ -144,20 +144,61 @@ document.write(tag);
 */
 
 function sortBuble(){
-
+/**а потом в следуюшей жизни */
 }
 
-function sortBuble(){
+function sortSelect(mas){
+    var min = 0;
+    var lesen = 0;
+    var tmp=0;
+
+    for (min = 0;min<mas.length-1;min++)
+    {
+        lesen=min;
+        for (var j=min+1; j<mas.length;j++ ){
+            if (mas[j]<mas[lesen]){
+                lesen=j;
+            }
+        }
+        tmp = mas[min];
+        mas[min]=mas[lesen];
+        mas[lesen]=tmp;
+    }
+
 
 }
 
 
 
 function three(){
+var mas = [12,4,3,10,1,20];
+sortSelect(mas);
+mas.splice(0,1);//удалил  min;
+mas.splice(-1,1);// удалил max;
+alert (mas);
+
+/*!Читерстов  да я знаю но можно было искать в цикли min и max  и сохронять их индекс  а потом по индесу удалить. */
+}
+
+function four(){
+
+}
+/**
+ * Bonus.
+4. Задача повышенной сложности.
+Задан массив - [12,4,3,10,1,20] 
+необходимо отсортировать его в порядке возрастания, 
+при этом не использовать готовый метод sort и методы разобранные на занятии.
+ */
+
+function four(){
+    var mas = [12,4,3,10,1,20];
+    sortSelect(mas);
+    alert (mas);
 
 }
 
-
-
 //One();
 //two();
+//three();
+//four();
