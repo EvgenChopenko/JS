@@ -110,31 +110,38 @@ function ZeroOrX(a){
     }else if (a===1) {
         return "O";
     }else {
-        return "";
+        return " ";
     }
 }
 
 function two(){
  var tag = '<table cellspacing="2" border="1" cellpadding="5" width="600" >';
- var mas =[ 1, null, 0, null, 1, null, null, null, null ];
+ var mas =[ 1, null, 0, null, 1, null, null, null, 1 ];
  var i=0;
  var mas_leng= mas.length;
 
     if (mas_leng%3 >0){
         mas_leng=0;
-        aler("Масив залон не верно");
+        aler("Масив задон не верно");
     }else{
-        mas_leng=mas_leng/3;
-    }
+        
+    
 
  while (i<mas_leng) {
+    //  alert(i);
 tag += "<tr><td>"+
 ZeroOrX(mas[i])+"</td><td>"+
 ZeroOrX(mas[i+1])+"</td><td>"+
 ZeroOrX(mas[i+2])+"</td></tr>"   ; 
-i++;
+
+// console.log(mas[i] +" "+ i);
+// console.log(mas[i+1]+" "+(i+1));
+// console.log(mas[i+2]+" "+(i+2));
+
+i+=3;
 }
 tag += "</table>";
+    }
 document.write(tag);
 }
 
@@ -199,6 +206,6 @@ function four(){
 }
 
 //One();
-//two();
+two();
 //three();
 //four();
