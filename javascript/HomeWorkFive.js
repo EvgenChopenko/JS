@@ -67,6 +67,38 @@ function one(){
 */
 
 
+function masAnd(a,b){
+var A = new Array().concat(a);
+var B = new Array().concat(b);
+
+for (var i=0;i<A.length;i++){
+    for (var j=0;j<B.length;j++){
+        if (A[i]!==B[j]){
+          
+            A.push(B[j]);
+        }else
+        {
+            B.splice(j);
+        }
+    }
+   
+
+}
+
+return A;
+}
+
+
+function two(){
+A = [1,2,3,4];
+ B = [2,3,4,5,6] ;
+
+ C = masAnd(A,B);
+ alert(C);
+}
+
+
+
 /*
 3 Написать отдельную функцию, которая выводит пользователю 
 заданное число чисел Фибоначчи. 
@@ -77,11 +109,103 @@ function one(){
 
 */
 
+
+function fibanachi(arg){
+    var mas = new Array();
+    mas[0]=1
+    mas[1]=1
+    var i =2;
+    arg = parseInt(arg);
+if (arg===0){
+    return 0;
+
+}else if(arg===1){
+    return 1;
+
+   
+}else if (arg>1){
+   
+    while (i<arg){    
+    mas.push(mas[i-2]+mas[i-1]);
+    i++;
+    }
+
+
+    
+
+
+
+return mas;
+}
+return 0;
+}
+
+
+function three(){
+alert (fibanachi(8));
+}
+
+
+
 /*
  Напишите функцию (), которая в зависимости от переданных 
 в нее целочисленных аргументов "количество дней", будет выводить 
 слово "день" в нужно форме ("если передали - 1, то 1 день", 
 "если передали - 3, то 3 дня" и т.д). 
+
+0 дней 1 день 2 дня 3 дня 4 дня 5 дней 6 дней 7 дней 8 дней 10 дней 
+11 12 13 14 15 16 17 18 19 20 дней 21 день 22 дня 23 дня 24 дня 25 дней  
+26 27 28 29 30 дней 31 день
+
 */
+function daydel(d){
+   
+    switch(true){
+        case(d%10===1):return 1;
+        case(d%10===2):return 2;
+        case(d%10===3):return 3;
+       case(d%10===4): return 4; 
+       case(d%10===5): return 5; 
+       case(d%10===6): return 6; 
+       case(d%10===7): return 7; 
+       case(d%10===8): return 8; 
+       case(d%10===9): return 9; 
+        default:return 0 ;
+    }
+}
+
+
+function dayToText (d) {
+    switch(true){
+        case(d===0):return 0+" дней";
+       case(d>=5 && d<=20): return d+" дней"; 
+       case (d===1 || daydel(d)===1):return d + " день";
+       case (d===2 || daydel(d)===2):return d + " дня";
+         case (d===3 || daydel(d)===3):return d + " дня";
+         case (d===4 || daydel(d)===4):return d + " дня";
+         case (d===5 || daydel(d)===5):return d + " дней";
+        case( daydel(d)===6):return d + " дней";
+        case(  daydel(d)===7):return d + " дней";
+        case(daydel(d)===8):return d + " дней";
+         case(daydel(d)===9):return d + " дней";
+         case(daydel(d)===0):return d + " дней";
+
+    }
+}
+
+function four() {
+   
+
+for (var i =0;i<100000;i++){
+    console.log( dayToText (i));
+}
+
+
+
+
+}
 
 //one();
+//two();
+//three();
+four();
