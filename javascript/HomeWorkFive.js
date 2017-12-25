@@ -70,31 +70,34 @@ function one(){
 function masAnd(a,b){
 var A = new Array().concat(a);
 var B = new Array().concat(b);
-
+var lang = B.length;
 for (var i=0;i<A.length;i++){
-    for (var j=0;j<B.length;j++){
-        if (A[i]!==B[j]){
-          
-            A.push(B[j]);
-        }else
-        {
-            B.splice(j);
+    for (var j=0;j<lang;j++){
+        
+        if (A[i]===B[j]){
+           
+           
+            B.splice(j,1);
+           
+            console.log(B);
         }
+       
+      
     }
    
 
 }
 
-return A;
+return A.concat(B);
 }
 
 
 function two(){
-A = [1,2,3,4];
- B = [2,3,4,5,6] ;
+A = [1,2,2,3,4];
+ B = [2,3,5,4] ;
 
  C = masAnd(A,B);
- alert(C);
+ console.log(C);
 }
 
 
@@ -206,6 +209,6 @@ for (var i =0;i<100000;i++){
 }
 
 //one();
-//two();
+two();
 //three();
-four();
+//four();
