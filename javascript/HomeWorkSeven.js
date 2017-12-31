@@ -30,7 +30,7 @@ function drawBackgroundColor() {
       data.addColumn('number', 'f');
       for (var x = -500 ; x<500;x++ ){
         data.addRows([draw(Math.round( x/100),f),]);
-        console.log(draw(( x/100),f))
+      //  console.log(draw(( x/100),f))
       }
      
 
@@ -58,6 +58,7 @@ function drawBackgroundColor() {
        
         return 1/x + Math.sqrt(x);
         }
+        
         describe("HomeWorkSeven fun"
         , function(){
         var input1 = '250';
@@ -90,3 +91,91 @@ function drawBackgroundColor() {
     });
 
         });
+
+
+/**3.Написать свою подключаемую js библиотеку для 
+ работы с массивом, хранящим целые числа.
+Библиотека должна обладать следующими методами:
+- поиск минимального элемента в переданном массиве;
+- поиск максимально элемента в переданном массиве;
+- расчет среднего арифметического значения элементов
+ переданного массива;
+- создание копии (клонирование) переданного массива.
+Библеотука HomeWorkSevenDopMasLib.js
+Object MyMass
+
+
++max_elment(mas):return int;
++min_elment(mas):return int;
++average(mas):return float;
++clone(mas):return mas; 
+
+
+
+
+
+*/
+
+
+function three() {
+
+    test = [2,'a',10,35,1,2];
+    test2 = ['a','я','c']; 
+    test3 = [80,2,-1,0,3,2,55,1]; 
+    test4 = []; 
+    test5 = [1,2,3];
+    console.log( MyMass.max_element(test3));
+    console.log( MyMass.min_element(test3));
+    console.log( MyMass.average(test3));
+   
+    var s = MyMass.clone(test5);
+    s.push(10);
+    console.log( MyMass.clone(test5));
+
+    
+};
+/**
+ * 
+ * 
+ * Задача повышенной сложности:
+Написать кодер для шифра Цезаря (https://ru.wikipedia.org/wiki/Шифр_Цезаря). 
+На вход принимается строка и сдвиг. На выход - зашифрованное/расшифрованное сообщение.
+Выдержка из Вики:
+Шифр Цезаря — это вид шифра подстановки, в котором каждый символ в открытом 
+тексте заменяется символом, находящимся на некотором постоянном числе позиций левее 
+или правее него в алфавите. Например, в шифре со сдвигом вправо на 3, А была бы 
+заменена на Г, Б станет Д, и так далее.
+ * 
+ * 
+ * 
+ */
+
+
+
+function code (text,n){
+    var str = '';
+    for (var i = 0 ; i< text.length;i++)
+    str+= String.fromCharCode(text[i].charCodeAt()+n);
+
+    return str;
+}
+
+
+function decode (text,n){
+    var str = '';
+    for (var i = 0 ; i< text.length;i++)
+    str+= String.fromCharCode(text[i].charCodeAt()-n);
+
+    return str;
+}
+
+
+function four() {
+    var x= code ('Мама мыла раму',3);
+    console.log(x);
+    console.log(decode(x,3));    
+}
+
+
+three();
+four();
