@@ -68,27 +68,43 @@ function one(){
 
 
 function masAnd(a,b){
-var A = new Array().concat(a);
-var B = new Array().concat(b);
-var lang = B.length;
-for (var i=0;i<A.length;i++){
-    for (var j=0;j<lang;j++){
-        
-        if (A[i]===B[j]){
-           
-           
-            B.splice(j,1);
-           
-            console.log(B);
+
+    var number ={
+        mas : {},
+        length: 0,
+        set: function (p) {
+                 if (this.mas[p]===undefined){
+                   this.mas[p] = true;
+                   this.length++;
+                   
+                 }
+                },  
+        setMas:function(p) {
+            if ( isNaN(p) && p.length>0 ){
+                for (var i=0; i<p.length;i++){
+                    if (this.mas[p[i]]===undefined){
+                        this.mas[p[i]] = true;
+                        this.length++;
+                        
+                      }
+                }
+            }
+            else
+            console.log('Eror');
+        },
+                
+        get:function () {
+            return Object.keys(this.mas);
         }
-       
-      
-    }
-   
 
-}
 
-return A.concat(B);
+
+    };
+
+var A = number;
+A.setMas(a);
+A.setMas(b);
+return A.get();
 }
 
 
